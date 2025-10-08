@@ -10,18 +10,14 @@ form.addEventListener('submit', function(event) {
 
     if (age < 0) {
         message = 'Please enter a valid age.';
-    } else if (age < 13) {
-        message = 'You are eligible for a child ticket.';
-    } else if (age >= 13 && age <= 17) {
-        message = 'You are eligible for a teen ticket.';
-    } else if (age >= 18 && age <= 64) {
+    } else if (age < 17) {
+        message = 'Discounted ticket granted.';
+    } else if (age >= 18) {
         if (isStudent) {
-            message = 'You are eligible for a student ticket.';
+            message = 'Discounted ticket granted.';
         } else {
-            message = 'You are eligible for an adult ticket.';
+            message = 'Regular ticket only.';
         }
-    } else {
-        message = 'You are eligible for a senior ticket.';
     }
 
     resultDiv.textContent = message;
